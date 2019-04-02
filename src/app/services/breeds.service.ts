@@ -1,18 +1,18 @@
 import {Injectable} from '@angular/core';
 import {IGetBreedsParams} from './index';
+import {Api} from '../http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BreedsService {
-  constructor() { }
+  constructor(
+    api: Api
+  ) { }
 
   getBreeds(params?: IGetBreedsParams) {
   }
 
   getBreedById(breedId: string) {
-    return axios
-      .get(`/breeds/${breedId}`)
-      .then((response: AxiosResponse) => response.data);
   }
 }

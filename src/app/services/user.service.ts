@@ -26,11 +26,11 @@ export class UserService {
     this.user = user;
   }
 
-  private getUser(): User {
+  getUser(): User {
     return this.user;
   }
 
-  private setUser(user: User): void {
+  setUser(user: User): void {
     this.user = user;
   }
 }
