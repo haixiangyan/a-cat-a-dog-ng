@@ -1,0 +1,54 @@
+@mixin buttonStyles($color) {
+  color: $color !important;
+  border-color: lighten($color, 20%) !important;
+  background-color: lighten($color, 45%) !important;
+}
+.home {
+  margin: 0 auto;
+  width: 100%;
+  &-image-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 510px;
+    overflow: hidden;
+    border-radius: 12px;
+    > img {
+      width: 100%;
+      vertical-align: top;
+      border-radius: 8px;
+    }
+  }
+  &-actions {
+    margin-top: 4px;
+    padding-top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-top: 1px solid #ddd;
+    > button {
+      transform: scale(1.2);
+    }
+    .vote-button {
+      &.ant-btn:focus, &.ant-btn:hover {
+        @include buttonStyles(#dd0031)
+      }
+    }
+    .favourite-button {
+      &.ant-btn:focus, &.ant-btn:hover {
+        @include buttonStyles(#fadb14)
+      }
+    }
+    .analyze-button {
+      &.ant-btn:focus, &.ant-btn:hover {
+        @include buttonStyles(#909399)
+      }
+    }
+    .next-button {
+      &.ant-btn:focus, &.ant-btn:hover {
+        @include buttonStyles(#67C23A)
+      }
+    }
+  }
+}
