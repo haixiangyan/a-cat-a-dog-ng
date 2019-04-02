@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ImagesService} from '../../services/images.service';
-import {IImage} from '../../env';
+import {IImage, IImageAnalysis} from '../../env';
 import {VotesService} from '../../services/votes.service';
 import {FavouritesService} from '../../services/favourites.service';
 import {UserService} from '../../services/user.service';
@@ -18,6 +18,8 @@ export class HomeComponent implements OnInit {
     type: 'CAT'
   };
   images: IImage[] = [];
+  imageAnalysis: IImageAnalysis[] = [];
+  isShowAnalysis = false;
 
   constructor(
     private message: NzMessageService,
@@ -59,8 +61,18 @@ export class HomeComponent implements OnInit {
         this.images = images;
 
         // Analyze image
-        this.imagesService.analyzeImage(images[0].id);
+        this.imagesService.analyzeImage(images[0].id)
+          .subscribe(imageAnalysis => {
+            this.imageAnalysis = imageAnalysis;
+          });
       });
+  }
+
+  toggleAnalysis() {
+    if (this.imageAnalysis.length === 0) {
+      return;
+    }
+    this.isShowAnalysis = !this.isShowAnalysis;
   }
 
   onClickUpload() {
