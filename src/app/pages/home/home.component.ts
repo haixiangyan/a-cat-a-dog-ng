@@ -62,4 +62,24 @@ export class HomeComponent implements OnInit {
         this.imagesService.analyzeImage(images[0].id);
       });
   }
+
+  onClickUpload() {
+    // @ts-ignore
+    document.querySelector('#new-file').click();
+  }
+
+  onChangeImage(event) {
+    const data = new FormData();
+    data.append('sub_id', this.user.subId);
+    data.append('file', event.target.files[0]);
+    this.imagesService.uploadImage(data)
+      .then((response) => {
+        // Error
+        if (response.status.toString().startsWith('2')) {
+          this.message.success('Upload successfully');
+        } else {
+          this.message.error(response.data.message);
+        }
+      });
+  }
 }

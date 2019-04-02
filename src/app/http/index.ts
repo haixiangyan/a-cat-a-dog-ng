@@ -10,25 +10,33 @@ export class Api implements HttpInterceptor {
     CAT: 'https://api.thecatapi.com/v1',
     DOG: 'https://api.thedogapi.com/v1'
   };
-  private headerMapper = {
-    CAT: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'x-api-key': catKey,
-    }),
-    DOG: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'x-api-key': dogKey,
-    })
+  private keyMapper = {
+    CAT: catKey,
+    DOG: dogKey
   };
 
   constructor(private userService: UserService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const user = this.userService.getUser();
-    const apiReq = req.clone({
+    // Upload
+    if (req.url.indexOf('upload') > 0) {
+      const uploadReq = req.clone({
+        url: `${this.baseUrlMapper[user.type]}${req.url}`,
+        headers: new HttpHeaders({
+          'Content-Type': 'multipart/form-data',
+          'x-api-key': this.keyMapper[user.type]
+        })
+      });
+      return next.handle(uploadReq);
+    }
+    const jsonReq = req.clone({
       url: `${this.baseUrlMapper[user.type]}${req.url}`,
-      headers: this.headerMapper[user.type]
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'x-api-key': this.keyMapper[user.type]
+      })
     });
-    return next.handle(apiReq);
+    return next.handle(jsonReq);
   }
 }

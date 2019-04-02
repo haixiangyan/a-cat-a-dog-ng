@@ -7,7 +7,8 @@
     <button class="vote-button" (click)="vote()" nz-button nzType="default" nzSize="large" nzShape="circle">
       <i nz-icon type="caret-up"></i>
     </button>
-    <button class="upload-button" nz-button nzType="default" nzShape="circle">
+    <input id="new-file" name="new-file" (change)="onChangeImage($event)" style="display: none;" type="file">
+    <button class="upload-button" (click)="onClickUpload()" nz-button nzType="default" nzShape="circle">
       <i nz-icon type="upload"></i>
     </button>
     <button class="favourite-button" (click)="favourite()" nz-button nzType="default" nzSize="large" nzShape="circle">
