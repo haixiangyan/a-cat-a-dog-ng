@@ -1,3 +1,13 @@
-<p>
-  setting works!
-</p>
+<div class="setting">
+  <app-header></app-header>
+
+  <section class="setting-type">
+    <p>Which you would you prefer?</p>
+    <nz-form-control>
+      <nz-radio-group (ngModelChange)="onChangeType($event)" name="type" [(ngModel)]="user.type">
+        <label nz-radio nzValue="CAT">CAT</label>
+        <label nz-radio nzValue="DOG">DOG</label>
+      </nz-radio-group>
+    </nz-form-control>
+  </section>
+</div>
