@@ -4,19 +4,19 @@
     <img *ngIf="images.length > 0 && images[0].url" [src]="images[0].url" alt="Image">
   </div>
   <div class="home-actions">
-    <button class="vote-button" nz-button nzType="default" nzSize="large" nzShape="circle">
+    <button class="vote-button" (click)="vote()" nz-button nzType="default" nzSize="large" nzShape="circle">
       <i nz-icon type="caret-up"></i>
     </button>
     <button class="upload-button" nz-button nzType="default" nzShape="circle">
       <i nz-icon type="upload"></i>
     </button>
-    <button class="favourite-button" nz-button nzType="default" nzSize="large" nzShape="circle">
+    <button class="favourite-button" (click)="favourite()" nz-button nzType="default" nzSize="large" nzShape="circle">
       <i nz-icon type="star"></i>
     </button>
     <button class="analyze-button" nz-button nzType="default" nzShape="circle">
       <i nz-icon type="pie-chart"></i>
     </button>
-    <button class="next-button" nz-button nzType="default" nzSize="large" nzShape="circle">
+    <button class="next-button" (click)="updateImage()" nz-button nzType="default" nzSize="large" nzShape="circle">
       <i nz-icon type="redo"></i>
     </button>
   </div>
