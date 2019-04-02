@@ -1,4 +1,4 @@
-import {HttpClient, HttpInterceptor, HttpHeaders, HttpRequest, HttpHandler, HttpEvent} from '@angular/common/http';
+import {HttpClient, HttpInterceptor, HttpHeaders, HttpRequest, HttpHandler, HttpEvent, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {UserService} from '../services/user.service';
@@ -26,7 +26,7 @@ export class Api implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const user = this.userService.getUser();
     const apiReq = req.clone({
-      url: this.baseUrlMapper[user.type],
+      url: `${this.baseUrlMapper[user.type]}${req.url}`,
       headers: this.headerMapper[user.type]
     });
     return next.handle(apiReq);
