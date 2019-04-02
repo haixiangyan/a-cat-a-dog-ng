@@ -62,6 +62,7 @@ export interface IAddFavouriteData {
 // Votes Service
 export interface IGetVotesParams {
   sub_id?: string;
+  [params: string]: string;
 }
 
 export interface IAddVoteData {
