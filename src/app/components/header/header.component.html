@@ -1,3 +1,27 @@
-<p>
-  header works!
-</p>
+<header class="header">
+  <nz-dropdown nzTrigger="click" nzPlacement="bottomLeft">
+    <a nz-dropdown><i class="header-icon" nz-icon type="user"></i></a>
+    <ul nz-menu nzSelectable>
+      <li nz-menu-item>
+        <a>{{user.subId}}</a>
+      </li>
+    </ul>
+  </nz-dropdown>
+
+  <a routerLink="/">🐱A🐶</a>
+
+  <nz-dropdown nzTrigger="click" nzPlacement="bottomRight">
+    <a nz-dropdown><i class="header-icon" nz-icon type="setting"></i></a>
+    <ul nz-menu nzSelectable>
+      <li nz-menu-item>
+        <a routerLink="/setting">Setting</a>
+      </li>
+      <li nz-menu-item>
+        <a routerLink="/votes">Voted Images</a>
+      </li>
+      <li nz-menu-item>
+        <a routerLink="/favourites">Favourite Images</a>
+      </li>
+    </ul>
+  </nz-dropdown>
+</header>

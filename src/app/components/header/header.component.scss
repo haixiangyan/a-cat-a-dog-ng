@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 1.2em;
+  a {
+    color: #20232a;
+  }
+  &-icon {
+    font-size: 1.2em;
+    color: #20232a;
+    cursor: pointer;
+  }
+}
