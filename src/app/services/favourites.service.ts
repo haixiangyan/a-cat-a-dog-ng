@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {IAddFavouriteData, IGetFavouritesParams} from './index';
 import {HttpClient} from '@angular/common/http';
-import {IFavourite, IFavouritesElement} from '../env';
+import {IFavouritesElement} from '../env';
 import {Observable} from 'rxjs';
 
 @Injectable({
