@@ -5,13 +5,14 @@ import {SettingComponent} from './pages/setting/setting.component';
 import {VotesComponent} from './pages/votes/votes.component';
 import {FavouritesComponent} from './pages/favourites/favourites.component';
 import {RegisterComponent} from './pages/register/register.component';
+import {AuthGuard} from './auth/auth.guard';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: 'home', component: HomeComponent},
-  {path: 'setting', component: SettingComponent},
-  {path: 'votes', component: VotesComponent},
-  {path: 'favourites', component: FavouritesComponent},
+  {canActivate: [AuthGuard], path: '', redirectTo: '/home', pathMatch: 'full'},
+  {canActivate: [AuthGuard], path: 'home', component: HomeComponent},
+  {canActivate: [AuthGuard], path: 'setting', component: SettingComponent},
+  {canActivate: [AuthGuard], path: 'votes', component: VotesComponent},
+  {canActivate: [AuthGuard], path: 'favourites', component: FavouritesComponent},
   {path: 'register', component: RegisterComponent}
 ];
 
