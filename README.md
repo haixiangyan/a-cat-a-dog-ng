@@ -1,27 +1,44 @@
-# ACatADogNg
+# a-cat-a-dog-ng
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.7.
+An Angular App for showing cats 🐱 and dogs 🐶.
 
-## Development server
+[Click here to view the demo](https://haixiang6123.github.io/a-cat-a-dog-ng/)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Screenshot
 
-## Code scaffolding
+![](https://i.loli.net/2019/04/03/5ca3a222acc5c.png)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## How to use
 
-## Build
+### Before running it
+Before running it, you need to add a file `secret.ts` to 
+the directory `/src/app/http`. So, it would be `/src/app/http/secret.ts`.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Then place following codes in it.
 
-## Running unit tests
+```typescript
+export const catKey = 'APPLY THE KEY ON https://thecatapi.com/'
+export const dogKey = 'APPLY THE KEY ON https://thedogapi.com/'
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+For those 2 keys, you need to sign up in [thecatapi.com](https://thecatapi.com/) and [thedogapi.com](https://thedogapi.com/).
 
-## Running end-to-end tests
+### Now run it
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Now, enter following commands to run it :)
+```bash
+$ cd a-cat-a-dog-ng
 
-## Further help
+$ yarn install
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+$ ng serve
+```
+
+## Stacks
+
+* [Angular](https://angular.io/)
+* [Angular Routing & Navigation](https://angular.io/guide/router)
+* [Angular HttpClient](https://angular.io/guide/http)
+* [Ant Design of Angular|NG-ZORRO](https://ng.ant.design/docs/introduce/en)
+* [Axios](https://github.com/axios/axios)
+* [Typescript](https://www.typescriptlang.org/)
