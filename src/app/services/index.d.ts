@@ -1,12 +1,14 @@
 // Image Service
 export interface IGetImagesParams {
-  size?: 'full' | 'med' | 'small' | 'thumb';
-  mime_types?: 'jpg' | 'png' | 'gif' | 'jpg,gif,png';
-  format?: 'json';
-  order?: 'RANDOM' | 'ASC' | 'DESC';
-  page?: number;
-  limit?: number;
+  size?: string;
+  mime_types?: string;
+  format?: string;
+  order?: string;
+  page?: string;
+  limit?: string;
   category_ids?: string;
+
+  [params: string]: string;
 }
 
 export interface IGetUploadedImagesParams {
@@ -49,6 +51,7 @@ export interface IUploadImageError {
 // Favourites Service
 export interface IGetFavouritesParams {
   sub_id: string;
+  [params: string]: string;
 }
 
 export interface IAddFavouriteData {
@@ -82,5 +85,5 @@ export interface IGetSourcesParams {
 
 export class User {
   subId: string;
-  type: 'CAT'|'DOG';
+  type: 'CAT' | 'DOG';
 }
