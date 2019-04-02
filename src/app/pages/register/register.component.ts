@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../../services';
 import {UserService} from '../../services/user.service';
-import {FormGroup} from '@angular/forms';
 import {NzMessageService} from 'ng-zorro-antd';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -14,9 +14,12 @@ export class RegisterComponent implements OnInit {
     subId: '',
     type: 'CAT'
   };
-  validateForm: FormGroup;
 
-  constructor(private userService: UserService, private message: NzMessageService) {
+  constructor(
+    private userService: UserService,
+    private message: NzMessageService,
+    private router: Router
+  ) {
     this.user = userService.getUser();
   }
 
@@ -32,5 +35,8 @@ export class RegisterComponent implements OnInit {
     localStorage.setItem('user', JSON.stringify(this.user));
     // Update user service
     this.userService.setUser(this.user);
+    // Jump to home
+    this.message.success('Huwa');
+    this.router.navigate(['/home']);
   }
 }
