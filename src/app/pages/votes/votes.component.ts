@@ -4,8 +4,6 @@ import {ImagesService} from '../../services/images.service';
 import {VotesService} from '../../services/votes.service';
 import {UserService} from '../../services/user.service';
 import {User} from '../../services';
-import {Observable} from 'rxjs';
-import {IImage} from '../../env';
 
 @Component({
   selector: 'app-votes',
