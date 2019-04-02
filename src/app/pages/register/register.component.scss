@@ -1,0 +1,22 @@
+.register {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  h3 {
+    text-align: center;
+  }
+  &-image {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    width: 180px;
+  }
+  &-subId {
+    margin-top: 12px;
+  }
+  &-type {
+  }
+  &-button {
+  }
+}

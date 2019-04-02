@@ -10,13 +10,14 @@ import {FavouritesComponent} from './pages/favourites/favourites.component';
 import {RegisterComponent} from './pages/register/register.component';
 import {HeaderComponent} from './components/header/header.component';
 import {AnalysisComponent} from './components/analysis/analysis.component';
-import {NgZorroAntdModule, NZ_I18N, en_US} from 'ng-zorro-antd';
+import {NzFormModule} from 'ng-zorro-antd';
 import {FormsModule} from '@angular/forms';
+import {en_US, NgZorroAntdModule, NZ_I18N} from 'ng-zorro-antd';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {registerLocaleData} from '@angular/common';
 import en from '@angular/common/locales/en';
-import {Api, httpInterceptorProviders} from './http';
+import {Api} from './http';
 
 registerLocaleData(en);
 
@@ -34,8 +35,9 @@ registerLocaleData(en);
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgZorroAntdModule,
     FormsModule,
+    NzFormModule,
+    NgZorroAntdModule,
     HttpClientModule,
     BrowserAnimationsModule
   ],

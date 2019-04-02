@@ -1,1 +1,20 @@
-<img src="" alt="">
+<form nz-form class="register">
+  <img class="register-image" src="https://i.loli.net/2019/03/30/5c9efda85ee97.jpg" alt="Image">
+  <section class="register-subId">
+    <nz-form-control>
+      <input nz-input name="sub-id" placeholder="User Name" [(ngModel)]="user.subId"/>
+    </nz-form-control>
+  </section>
+  <section class="register-type">
+    <h3 style="text-align: left">I prefer...</h3>
+    <nz-form-control>
+      <nz-radio-group name="type" [(ngModel)]="user.type">
+        <label nz-radio nzValue="CAT">CAT</label>
+        <label nz-radio nzValue="DOG">DOG</label>
+      </nz-radio-group>
+    </nz-form-control>
+  </section>
+  <section>
+    <button class="register-button" (click)="getStared()" nzSize="large" nz-button nzType="primary" nzBlock>GET STARTED</button>
+  </section>
+</form>
