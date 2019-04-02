@@ -1,0 +1,18 @@
+.votes {
+  .votes-image-list {
+    column-count: 2;
+    column-gap: 0;
+    .votes-item {
+      break-inside: avoid;
+      .votes-image {
+        width: 100%;
+      }
+      .votes-image-action {
+        padding: -12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
+}

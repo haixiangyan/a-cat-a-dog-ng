@@ -18,8 +18,23 @@ export class ImagesService {
     return this.http.get<IImage[]>('/images/search', {params});
   }
 
-  getImageById(imageId: string): Observable<IImage> {
-    return this.http.get<IImage>(`/images/${imageId}`);
+  getImageById(imageId: string) {
+    const baseUrlMapper = {
+      CAT: 'https://api.thecatapi.com/v1',
+      DOG: 'https://api.thedogapi.com/v1'
+    };
+    const keyMapper = {
+      CAT: catKey,
+      DOG: dogKey
+    };
+    return axios
+      .get(`${baseUrlMapper[this.userService.user.type]}/images/${imageId}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': keyMapper[this.userService.user.type]
+        }
+      })
+      .then((response) => response.data);
   }
 
   uploadImage(data) {
@@ -41,6 +56,7 @@ export class ImagesService {
       .then((response) => response)
       .catch((error) => error.response);
   }
+
   analyzeImage(imageId: string): Observable<any> {
     return this.http.get<any>(`/images/${imageId}/analysis`);
   }

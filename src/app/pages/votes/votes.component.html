@@ -1,3 +1,23 @@
-<p>
-  votes works!
-</p>
+<div class="votes">
+  <app-header></app-header>
+  <div class="votes-image-list">
+    <div *ngFor="let image of imagesWithVote" class="votes-item">
+      <nz-card nzHoverable [nzCover]="coverTemplate">
+        <div class="votes-image-wrapper" style="text-align: center;">
+          <button
+            nz-popconfirm
+            nzTitle="Are you sure delete this task?"
+            (nzOnConfirm)="deleteVote(image.vote.id)" (nzOnCancel)="closePopover()"
+            nz-button
+            nzType="danger"
+            nzShape="circle">
+            <i nz-icon type="delete"></i>
+          </button>
+        </div>
+      </nz-card>
+      <ng-template #coverTemplate>
+        <img class=".votes-image" alt="example" [src]="image.url" />
+      </ng-template>
+    </div>
+  </div>
+</div>
